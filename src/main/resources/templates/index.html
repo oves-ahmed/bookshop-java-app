@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Book Nook</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to The Book Nook 📖</h1>
+        <p>Your one-stop shop for literary adventures.</p>
+    </header>
+
+    <main class="container">
+        <section class="book-list-section">
+            <h2>Our Featured Books</h2>
+            <ul class="book-list">
+                <li th:each="book : ${books}" class="book-item">
+                    <span th:text="${book}">Book Title</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 The Book Nook. All rights reserved.</p>
+    </footer>
+</body>
+</html>
