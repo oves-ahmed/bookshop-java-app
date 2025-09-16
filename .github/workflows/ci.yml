@@ -1,6 +1,7 @@
 name: Test Workflow
 on:
-  workflow_dispatch:  # Allows manual trigger
+  push:
+    branches: [ staging, main ]  # Allows manual trigger
 
 jobs:
   test:
