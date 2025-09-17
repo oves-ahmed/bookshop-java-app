@@ -33,6 +33,13 @@ jobs:
       run: |
         sudo apt install maven -y
 
+    - name: Install Docker on runner
+      run: |
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sudo sh get-docker.sh
+        sudo usermod -aG docker azureuser
+        sudo chmod 666 /var/run/docker.sock    
+
     - name: Cache Maven packages
       uses: actions/cache@v3
       with:
