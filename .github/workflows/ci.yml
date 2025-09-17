@@ -30,8 +30,8 @@ jobs:
         distribution: 'temurin'
 
     - name: Install Maven on runner 
-     run: |
-       apt install maven
+      run: |
+        apt install maven
 
     - name: Cache Maven packages
       uses: actions/cache@v3
