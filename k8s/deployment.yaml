@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: springboot
-        image: avesahmed/book-app:v1
+        image: docker.io/avesahmed/book-app:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerport: 8080
