@@ -20,7 +20,7 @@ spec:
         image: docker.io/avesahmed/book-app:v1
         imagePullPolicy: IfNotPresent
         ports:
-        - containerport: 8080
+        - containerPort: 8080
         readinessProbe:
           httpGet:
             path: /actuator/health
