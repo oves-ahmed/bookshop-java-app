@@ -1,12 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: spring-boot-service
+  name: springboot-svc
+  namespace: springboot
+  labels:
+    app: springboot
 spec:
   selector:
-    app: spring-boot-app
+    app: bookshop
   ports:
-  - port: 80
-    targetPort: 8080
-    protocol: TCP
-  type: LoadBalancer
+  - name: metrics
+    port: 80
+    targetPort: 8081  
+  type: ClusterIP
