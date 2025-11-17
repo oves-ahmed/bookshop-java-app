@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookshop
+  namespace: bookshop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bookshop
+  template:
+    metadata:
+      labels:
+        app: bookshop
+    spec:
+      containers:
+        - name: bookshop
+          image: your-dockerhub-username/bookshop:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: bookshop-config
+                  key: SERVER_PORT
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 20

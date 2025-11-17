@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Shop</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header class="header">
+    <div class="brand">📚 Book Shop</div>
+    <nav>
+        <a class="btn" href="/books/new">+ Add Book</a>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="grid">
+        <th:block th:if="${#lists.isEmpty(books)}">
+            <div class="empty">No books yet. Click “Add Book” to create your first one!</div>
+        </th:block>
+
+        <article class="card" th:each="book : ${books}">
+            <h3 th:text="${book.title}">Title</h3>
+            <p class="muted" th:text="'by ' + ${book.author}">Author</p>
+            <p th:text="${book.description}">Description</p>
+            <div class="row">
+                <span class="price" th:text="${#numbers.formatDecimal(book.price, 1, 'POINT', 2, 'NONE')}">$9.99</span>
+                <div class="actions">
+                    <a class="link" th:href="@{'/books/edit/' + ${book.id}}">Edit</a>
+                    <form th:action="@{'/books/delete/' + ${book.id}}" method="post" class="inline">
+                        <button class="link danger" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer class="footer">Built with Spring Boot + Thymeleaf • Docker • Kubernetes • Jenkins</footer>
+</body>
+</html>

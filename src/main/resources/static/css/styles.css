@@ -1,0 +1,26 @@
+:root{
+  --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --brand:#60a5fa; --accent:#22d3ee; --danger:#f87171;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(125deg,var(--bg),#020617);color:var(--text)}
+.header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;position:sticky;top:0;background:rgba(2,6,23,.6);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+.brand{font-weight:800;font-size:20px;color:var(--text)}
+.container{max-width:1100px;margin:24px auto;padding:0 16px}
+.container.narrow{max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+h3{margin:0 0 8px}
+.muted{color:var(--muted);margin:0 0 12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price{font-weight:700}
+.actions{display:flex;gap:12px}
+.link{background:none;border:none;color:var(--brand);cursor:pointer;text-decoration:none;padding:0;font-weight:600}
+.link.danger{color:var(--danger)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;text-decoration:none;color:var(--text);font-weight:600;transition:.2s;background:rgba(255,255,255,.04)}
+.btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.24)}
+.btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border:none;color:#0b1220}
+.form label{display:block;margin:12px 0 4px;font-weight:600}
+.form input,.form textarea{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.2);color:var(--text)}
+.inline{display:inline}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:24px}
+.footer{text-align:center;color:var(--muted);padding:24px 0}
