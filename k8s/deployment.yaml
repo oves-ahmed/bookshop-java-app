@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: bookshop
-          image: avesahmed/spring-app
+          image: avesahmed/spring-app:025c392604c9109cfe37399e250f8260cf721dfd
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
