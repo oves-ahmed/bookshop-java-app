@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: bookshop
-          image: your-dockerhub-username/bookshop:latest
+          image: avesahmed/spring-app:v2
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
