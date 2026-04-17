@@ -13,6 +13,11 @@ jobs:
     - name: Setup kubeconfig
       run: echo "${{ secrets.KUBE_CONFIG_QA }}" > kubeconfig
 
+    - name: Debug files
+      run: |
+      pwd
+      ls -R
+
     - name: Deploy App
       run: |
         kubectl --kubeconfig=kubeconfig apply -f bookshop-java-app/k8s/
