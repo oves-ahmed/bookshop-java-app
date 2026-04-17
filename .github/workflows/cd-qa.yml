@@ -20,7 +20,7 @@ jobs:
 
     - name: Deploy App
       run: |
-        kubectl --kubeconfig=kubeconfig apply -f bookshop-java-app/k8s/
+        kubectl --kubeconfig=kubeconfig apply -f /home/runner/work/bookshop-java-app/bookshop-java-app/k8s/
 
         kubectl --kubeconfig=kubeconfig set image deployment/bookshop-app \
         bookshop=${{ secrets.DOCKER_USERNAME }}/bookshop:${{ github.sha }}
