@@ -15,8 +15,8 @@ jobs:
 
     - name: Debug files
       run: |
-      pwd
-      ls -R
+        pwd
+        ls -R
 
     - name: Deploy App
       run: |
