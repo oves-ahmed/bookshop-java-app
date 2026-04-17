@@ -1,0 +1,23 @@
+name: Deploy QA
+
+on:
+  push:
+    branches:
+      - feature
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup kubeconfig
+      run: echo "${{ secrets.KUBE_CONFIG_QA }}" > kubeconfig
+
+    - name: Deploy App
+      run: |
+        kubectl --kubeconfig=kubeconfig apply -f k8s/
+
+        kubectl --kubeconfig=kubeconfig set image deployment/bookshop-app \
+        bookshop=${{ secrets.DOCKER_USERNAME }}/bookshop:${{ github.sha }}
+
+        kubectl --kubeconfig=kubeconfig rollout status deployment/bookshop-app
